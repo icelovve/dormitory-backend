@@ -111,12 +111,10 @@ namespace WebApplication1.Controllers
             existingTenant.District = tenant.District;
             existingTenant.Province = tenant.Province;
             existingTenant.PostalCode = tenant.PostalCode;
-            // แก้ไข: เปลี่ยนจาก tenant.PhoneNumber เป็น tenant.IDCardNumber
             existingTenant.IDCardNumber = tenant.IDCardNumber;
             existingTenant.Username = tenant.Username;
             existingTenant.Email = tenant.Email;
 
-            // เข้ารหัสรหัสผ่านใหม่ถ้ามีการเปลี่ยนแปลง
             if (!string.IsNullOrEmpty(tenant.PasswordHash))
             {
                 existingTenant.PasswordHash = BCrypt.Net.BCrypt.HashPassword(tenant.PasswordHash);
